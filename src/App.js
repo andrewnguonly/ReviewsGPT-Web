@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [businessUrl, setBusinessUrl] = useState('');
+  const [question, setQuestion] = useState('');
+
+  const handleAskReviews = async () => {
+    console.log("asking reviews...")
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <input
+          type="text"
+          placeholder="Copy and paste a Yelp business page URL here..."
+          value={businessUrl}
+          onChange={(e) => setBusinessUrl(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Ask any question about the reviews"
+          value={question}
+          onChange={(e) => setQuestion(e.target.value)}
+        />
+        <button onClick={handleAskReviews}>Ask reviews!</button>
+      </div>
     </div>
   );
 }
