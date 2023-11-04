@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <div className="container">
+        <div className="title">ReviewsGPT</div>
         <input
           type="text"
           placeholder="Copy and paste a Yelp business page URL here..."

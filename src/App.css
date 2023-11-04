@@ -9,31 +9,45 @@ body {
 
 .App {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
   background-color: #cb202d; /* Yelp red color */
+  color: white;
 }
 
 .container {
   text-align: center;
-  width: 80%;
+  width: 100%;
   max-width: 400px; /* Adjust the maximum width as needed */
   margin: auto;
+}
+
+.title {
+  font-family: 'Yelp Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; /* Use Yelp Sans or a similar font */
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
 }
 
 input {
   width: 100%;
   padding: 10px;
   margin: 10px 0;
-  border: 2px solid white;
+  border: none;
   border-radius: 5px;
-  background-color: transparent;
-  color: white;
+  background-color: white;
+  color: black;
+  outline: none; /* Remove input field outline when focused */
+  box-sizing: border-box
 }
 
 button {
+  width: 100%;
   padding: 10px;
+  margin: 10px 0;
   border: 2px solid white;
   border-radius: 5px;
   background-color: transparent;
