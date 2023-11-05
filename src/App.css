@@ -66,17 +66,19 @@ button:hover {
   width: 90%;
   max-height: 200px;
   margin: auto;
-  margin-top: 30%;
   border-radius: 10px;
   border: 2px solid white;
   padding: 10px;
   font-size: 14px;
-  position: relative;
-  box-sizing: border-box
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
 }
 
 .modal-content-text {
-  max-height: 150px;
+  max-height: 130px;
   overflow-y: auto;
 }
 

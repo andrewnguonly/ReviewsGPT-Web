@@ -72,7 +72,7 @@ function App() {
       >
         <div className="modal-content-text">
           <p>Prompt: {question}</p>
-          <p>Response: {answer}</p>
+          <p style={{ whiteSpace: "pre-wrap" }}>Response:<br/>{answer}</p>
         </div>
         <button onClick={closeModal}>Ask reviews again!</button>
       </Modal>
