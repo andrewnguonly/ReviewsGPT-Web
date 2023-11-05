@@ -60,8 +60,9 @@ function App() {
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
         />
-        <button onClick={handleAskReviews} disabled={loading}>
-          {loading ? 'Asking reviews...' : 'Ask reviews!'}
+        <button onClick={handleAskReviews} disabled={loading} className={`button-container ${loading ? 'loading' : ''}`}>
+          <span>{loading ? 'Asking reviews...' : 'Ask reviews!'}</span>
+          {loading && <div className="loader"></div>}
         </button>
       </div>
       <Modal
