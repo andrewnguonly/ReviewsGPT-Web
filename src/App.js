@@ -1,12 +1,47 @@
 import React, { useState } from 'react';
+import Modal from 'react-modal';
 import './App.css';
+
 
 function App() {
   const [businessUrl, setBusinessUrl] = useState('');
   const [question, setQuestion] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [answer, setAnswer] = useState('');
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const handleAskReviews = async () => {
-    console.log("asking reviews...")
+    setLoading(true);
+
+    try {
+      const response = await fetch('https://us-central1-sails-dev-384021.cloudfunctions.net/ReviewsGPT', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          yelp_url: businessUrl,
+          question: question,
+        }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        setAnswer(result.answer);
+        setModalIsOpen(true);
+      } else {
+        console.error('Error:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error:', error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const closeModal = () => {
+    setModalIsOpen(false);
+    setAnswer('');
   };
 
   return (
@@ -25,8 +60,22 @@ function App() {
           value={question}
           onChange={(e) => setQuestion(e.target.value)}
         />
-        <button onClick={handleAskReviews}>Ask reviews!</button>
+        <button onClick={handleAskReviews} disabled={loading}>
+          {loading ? 'Asking reviews...' : 'Ask reviews!'}
+        </button>
       </div>
+      <Modal
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        contentLabel="Answer Modal"
+        className="modal-content"
+      >
+        <div className="modal-content-text">
+          <p>Prompt: {question}</p>
+          <p>Response: {answer}</p>
+        </div>
+        <button onClick={closeModal}>Ask reviews again!</button>
+      </Modal>
     </div>
   );
 }

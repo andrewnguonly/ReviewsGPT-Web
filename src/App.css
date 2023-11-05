@@ -20,7 +20,7 @@ body {
 .container {
   text-align: center;
   width: 90%;
-  max-width: 400px; /* Adjust the maximum width as needed */
+  max-width: 400px;
   margin: auto;
 }
 
@@ -40,7 +40,7 @@ input {
   border-radius: 5px;
   background-color: white;
   color: black;
-  outline: none; /* Remove input field outline when focused */
+  outline: none;
   box-sizing: border-box
 }
 
@@ -58,4 +58,33 @@ button {
 button:hover {
   background-color: white;
   color: black;
+}
+
+.modal-content {
+  background-color: white;
+  max-width: 400px;
+  width: 90%;
+  max-height: 200px;
+  margin: auto;
+  margin-top: 30%;
+  border-radius: 10px;
+  border: 2px solid white;
+  padding: 10px;
+  font-size: 14px;
+  position: relative;
+  box-sizing: border-box
+}
+
+.modal-content-text {
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.modal-content button {
+  background-color: #cb202d;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 5px;
 }
