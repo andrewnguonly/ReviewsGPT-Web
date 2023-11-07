@@ -2,8 +2,10 @@
 
 ReviewsGPT-Web is a simple React app that calls the API deployed by [ReviewsGPT](https://github.com/andrewnguonly/ReviewsGPT). The app is deployed on [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/create-react-app&template=create-react-app).
 
-<img src="screenshots/homescreen.png" width="100">
-<img src="screenshots/modal.png" width="100">
+<p float="left">
+  <img src="screenshots/homescreen.png" width="300">
+  <img src="screenshots/modal.png" width="300">
+</p>
 
 ## Available Scripts
 
